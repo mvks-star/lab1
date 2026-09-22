@@ -9,10 +9,10 @@ int main(){
     double y = 0.47 * 12;
     double z = -1.32 * 12;
 
-    Calculator* calc = new Calculator();
+    Calculator calc;
 
-    double b = calc->CalculateB(x, y, z);
-    double a = calc->CalculateA(x, y, z, b);
+    double b = calc.CalculateB(x, y, z);
+    double a = calc.CalculateA(x, y, z, b);
 
     cout << "x = " << x << endl;
     cout << "y = " << y << endl;
@@ -24,14 +24,11 @@ int main(){
     cout << "Tabulation:" << endl;
     cout << "x\t\ta\t\tb" << endl;
 
-    for (int i = 0; i <= 10; ++i) {
-        double currentX = -1.0 + i * 0.2;
-        double currentB = calc->CalculateB(currentX, y, z);
-        double currentA = calc->CalculateA(currentX, y, z, currentB);
+    for (double currentX = -1.0; currentX <= 1; currentX += 0.2){
+        double currentB = calc.CalculateB(currentX, y, z);
+        double currentA = calc.CalculateA(currentX, y, z, currentB);
 
-        cout << currentX << "\t\t" << currentA << "\t\t" << currentB << endl;
+       cout << currentX << "\t\t" << currentA << "\t\t" << currentB << endl;
     }
-
-    delete calc;
     return 0;
 }

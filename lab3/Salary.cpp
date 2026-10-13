@@ -1,7 +1,6 @@
 #include "Salary.h"
 #include <limits>
 
-// ????????? ??????? ??? ??????? ??? "????????? ?????" (????? ??????? ?????)
 int readPositiveInt(string prompt) {
     int val;
     while (true) {
@@ -19,10 +18,10 @@ double readPositiveDouble(string prompt) {
     double val;
     while (true) {
         cout << prompt;
-        if (cin >> val && val >= 0) {
+        if (cin >> val && val >= 0 && val == static_cast<int>(val)) {
             return val;
         }
-        cout << "Error! Enter a valid non-negative number.\n";
+        cout << "Error! Enter a whole non-negative number (no fractions).\n";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
@@ -100,13 +99,20 @@ Salary& Salary::operator+=(double bonus) {
 }
 
 Salary Salary::operator+(Worker newWorker) {
+    if (newWorker.salary < 0) {
+        throw invalid_argument("New worker salary cannot be negative!");
+    }
+
     Salary temp;
     temp.size = size + 1;
     temp.workers = new Worker[temp.size];
-    for (int i = 0; i < size; i++) {
+
+    for (int i = 0; i < size && i < temp.size; i++) {
         temp.workers[i] = workers[i];
     }
-    temp.workers[size] = newWorker;
+
+    temp.workers[temp.size - 1] = newWorker;
+
     return temp;
 }
 
@@ -119,18 +125,17 @@ Salary Salary::operator-(string dismissName) {
         }
     }
 
-    Salary temp;
     if (index == -1) {
         cout << "Worker not found for dismissal!" << endl;
-        // ?????????? ????? ????????? ??'???? ?????????
         return *this;
     }
 
+    Salary temp;
     temp.size = size - 1;
     if (temp.size > 0) {
         temp.workers = new Worker[temp.size];
         int k = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size && k < temp.size; i++) {
             if (i == index) continue;
             temp.workers[k] = workers[i];
             k++;

@@ -11,7 +11,7 @@ struct Worker {
     string middleName;
     string phone;
     string position;
-    double salary;
+    double salary = 0.0;
 };
 
 class Salary {

@@ -1,5 +1,4 @@
-﻿  Department.cpp
-  Institute.cpp
-  University.cpp
+﻿  University.cpp
+  main.cpp
   Generating Code...
   lab2.vcxproj -> D:\repos\OOP\x64\Debug\lab2.exe

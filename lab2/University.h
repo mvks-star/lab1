@@ -6,7 +6,6 @@ private:
     char* rectorLastName;
     Institute* institutes;
     int instituteCount;
-
 public:
     University();
     ~University();

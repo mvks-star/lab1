@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Department.h" />
+    <ClInclude Include="InputHelper.h" />
     <ClInclude Include="Institute.h" />
     <ClInclude Include="University.h" />
   </ItemGroup>

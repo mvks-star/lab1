@@ -1,4 +1,5 @@
 ﻿#include "Department.h"
+#include "InputHelper.h"
 #include <cstring>
 
 Department::Department() {
@@ -13,9 +14,10 @@ Department::~Department() {
 
 void Department::Input() {
     cout << "Enter department head's last name: ";
-    cin >> headLastName;
+    ReadLettersOnly(headLastName);
+
     cout << "Enter number of department employees: ";
-    cin >> employeeCount;
+    employeeCount = ReadNonNegativeInt();
 }
 
 void Department::Output() {

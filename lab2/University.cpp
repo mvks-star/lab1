@@ -1,5 +1,5 @@
-﻿#include "University.h"5
-
+﻿#include "University.h"
+#include "InputHelper.h"
 #include <cstring>
 
 University::University() {
@@ -16,9 +16,10 @@ University::~University() {
 
 void University::Input() {
     cout << "Enter university rector's last name: ";
-    cin >> rectorLastName;
+    ReadLettersOnly(rectorLastName);
+
     cout << "Enter number of institutes: ";
-    cin >> instituteCount;
+    instituteCount = ReadNonNegativeInt();
 
     institutes = new Institute[instituteCount];
     for (int i = 0; i < instituteCount; i++) {

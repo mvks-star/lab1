@@ -24,6 +24,9 @@
     <ClInclude Include="University.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="InputHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

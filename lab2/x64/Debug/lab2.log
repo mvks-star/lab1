@@ -1,3 +1,5 @@
-﻿  University.cpp
-D:\repos\OOP\lab2\University.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+﻿  Department.cpp
+  Institute.cpp
+  University.cpp
+  Generating Code...
   lab2.vcxproj -> D:\repos\OOP\x64\Debug\lab2.exe

@@ -1,4 +1,5 @@
 ﻿#include "Institute.h"
+#include "InputHelper.h"
 #include <cstring>
 
 Institute::Institute() {
@@ -15,9 +16,10 @@ Institute::~Institute() {
 
 void Institute::Input() {
     cout << "Enter institute director's last name: ";
-    cin >> directorLastName;
+    ReadLettersOnly(directorLastName);
+
     cout << "Enter number of departments in the institute: ";
-    cin >> departmentCount;
+    departmentCount = ReadNonNegativeInt();
 
     departments = new Department[departmentCount];
     for (int i = 0; i < departmentCount; i++) {
